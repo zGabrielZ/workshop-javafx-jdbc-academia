@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginListaController">
+   <children>
+      <Label text="Lista de Usuários">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+         <padding>
+            <Insets left="5.0" top="5.0" />
+         </padding>
+      </Label>
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <items>
+            <Button fx:id="btVoltar" mnemonicParsing="false" onAction="#onBtVoltar" text="Voltar " />
+          <Button fx:id="btNovo" mnemonicParsing="false" onAction="#onBtNovoAction" text="Novo" />
+            <Button fx:id="btProcurarNome" mnemonicParsing="false" onAction="#onBtProcurarNome" text="Procura pelo nome" />
+            <TextField fx:id="txtProcurarNome" />
+            <Button fx:id="btListaCompleta" mnemonicParsing="false" onAction="#onBtListaCompleta" text="Lista" />
+        </items>
+      </ToolBar>
+      <AnchorPane prefHeight="400.0" prefWidth="200.0">
+         <children>
+            <ScrollPane layoutX="11.0" layoutY="14.0" prefHeight="307.0" prefWidth="378.0">
+               <content>
+                  <TableView fx:id="tableViewLogin" prefHeight="307.0" prefWidth="378.0">
+                    <columns>
+                      <TableColumn fx:id="tableColumnId" prefWidth="40.0" text="Id" />
+                      <TableColumn fx:id="tableColumnUsuario" prefWidth="151.0" text="Usuário" />
+                        <TableColumn fx:id="tableComlumnEdit" prefWidth="81.0" />
+                        <TableColumn fx:id="tableComlumnRemove" prefWidth="92.0" />
+                    </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

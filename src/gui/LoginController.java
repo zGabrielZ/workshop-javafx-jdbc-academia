@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.CadastrarLoginTela;
 import application.LoginTela;
 import application.MainViewTela;
 import gui.util.Alerts;
@@ -14,14 +15,13 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import modelo.dao.DaoFactory;
-import modelo.dao.LoginDao;
+import modelo.entidade.Login;
+import modelo.entidade.service.LoginService;
 
 public class LoginController implements Initializable{
 
-
-	private LoginDao dao = DaoFactory.criarLogin();
-
+	private LoginService loginService = new LoginService();
+	
 	@FXML
 	private TextField txtFieldUsuario;
 	
@@ -44,7 +44,9 @@ public class LoginController implements Initializable{
 		
 		String senha = passFieldSenha.getText().toString();
 		
-		if(dao.checkLogin(usuario, senha)) {
+		Login login = new Login(null,usuario, senha);
+		
+		if(loginService.checkInLogin(login)) {
 			MainViewTela mainView = new MainViewTela();
 			try {
 				onBtSairAction();
@@ -61,6 +63,17 @@ public class LoginController implements Initializable{
 		}
 		
 		
+	}
+	
+	@FXML
+	public void obBtCadastrarAction() {
+		CadastrarLoginTela cadastrarLoginTela = new CadastrarLoginTela();
+		try {
+			onBtSairAction();
+			cadastrarLoginTela.start(new Stage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
