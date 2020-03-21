@@ -3,8 +3,6 @@ package gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import application.CadastrarLoginTela;
 import application.LoginTela;
 import application.MainViewTela;
 import gui.util.Alerts;
@@ -33,9 +31,6 @@ public class LoginController implements Initializable{
 	
 	@FXML
 	private Button btSair;
-	
-	@FXML
-	private Button btCadastrar;
 		
 	@FXML
 	public void onBtEntrarAction() throws IOException {
@@ -65,17 +60,7 @@ public class LoginController implements Initializable{
 		
 	}
 	
-	@FXML
-	public void obBtCadastrarAction() {
-		CadastrarLoginTela cadastrarLoginTela = new CadastrarLoginTela();
-		try {
-			onBtSairAction();
-			cadastrarLoginTela.start(new Stage());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
+
 	@FXML
 	public void onBtSairAction() {
 		LoginTela.getStage().close();
